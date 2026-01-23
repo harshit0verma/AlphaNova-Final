@@ -53,17 +53,18 @@ const DIRECT_FORM_URL = "https://forms.gle/eJmxd1Y19PVAurnU8";
 
 const Logo = () => (
   <div className="flex items-center gap-3">
-    <div className="w-14 h-14 relative flex items-center justify-center">
+    <div className="w-10 h-10 relative flex items-center justify-center">
       <img 
         src="https://lh3.googleusercontent.com/d/1Z1KbgreYtlWphhCBb2QQBTA0gjBOZDWi" 
         alt="Alphanova Trading Logo" 
-        className="w-full h-full object-contain drop-shadow-md"
+        className="w-full h-full object-contain drop-shadow-sm"
       />
     </div>
-    <span className="text-2xl font-black tracking-tighter flex items-baseline">
-      <span className="text-white uppercase">ALPHANOVA</span>
-      <span className="brand-gradient-text">trading</span>
-    </span>
+    <div className="font-poppins font-extrabold text-2xl tracking-tight leading-none flex items-center">
+      <span className="text-white">Alpha</span>
+      <span className="bg-gradient-to-r from-[#4ADE80] to-[#2DD4BF] bg-clip-text text-transparent">Nova</span>
+      <span className="text-white">Trading</span>
+    </div>
   </div>
 );
 
@@ -252,7 +253,7 @@ const App = () => {
               icon={<MapIcon size={32} />}
               subtitle="COST & QUALITY"
               title="The 'Origin' Advantage"
-              description="We cut out the traders. By sourcing directly from our partner clusters in Madhubani (The GI Hub of Makhana), we offer competitive FOB pricing without compromising on the '5-Sut+' Export Grade quality."
+              description="We cut out the traders. By sourcing directly from our partner clusters in Madhubani (The GI Hub of Makhana), we offer competitive FOB pricing without benefiting from the '5-Sut+' Export Grade quality."
             />
             <FeatureCard 
               index={1}
@@ -325,7 +326,7 @@ const App = () => {
                   {[
                     ["Origin", "Madhubani, Bihar, India"],
                     ["Variety", "Euryale Ferox (Fox Nut / Gorgon Nut)"],
-                    ["Grades", "5 Sut+ (Platinum), 4 Sut+ (Gold)"],
+                    ["Grades", "7 Sutta (Premium), 5 Sutta (Standard)"],
                     ["Moisture", "< 3-5% (Export Standard)"],
                     ["Shelf Life", "12 Months (Nitrogen Flushed)"]
                   ].map(([label, value]) => (
