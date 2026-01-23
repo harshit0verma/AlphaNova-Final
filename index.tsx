@@ -52,15 +52,15 @@ const DIRECT_FORM_URL = "https://forms.gle/eJmxd1Y19PVAurnU8";
 // --- Components ---
 
 const Logo = () => (
-  <div className="flex items-center gap-3">
-    <div className="w-10 h-10 relative flex items-center justify-center">
+  <div className="flex items-center gap-1.5 md:gap-3">
+    <div className="w-8 h-8 md:w-10 md:h-10 relative flex items-center justify-center shrink-0">
       <img 
         src="https://lh3.googleusercontent.com/d/1Z1KbgreYtlWphhCBb2QQBTA0gjBOZDWi" 
         alt="Alphanova Trading Logo" 
-        className="w-full h-full object-contain drop-shadow-sm"
+        className="w-full h-full object-contain drop-shadow-md"
       />
     </div>
-    <div className="font-poppins font-extrabold text-2xl tracking-tight leading-none flex items-center">
+    <div className="font-poppins font-extrabold text-[17px] sm:text-xl md:text-2xl tracking-tight leading-none flex items-center whitespace-nowrap">
       <span className="text-white">Alpha</span>
       <span className="bg-gradient-to-r from-[#4ADE80] to-[#2DD4BF] bg-clip-text text-transparent">Nova</span>
       <span className="text-white">Trading</span>
@@ -79,15 +79,15 @@ const Nav = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0f1e]/90 backdrop-blur-md border-b border-white/5 py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 flex justify-between items-center gap-2">
         <Logo />
         
-        <div className="flex items-center gap-8">
+        <div className="flex items-center">
           <a 
             href={DIRECT_FORM_URL} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="brand-gradient-bg text-slate-900 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-lg shadow-lime-500/20 hover:scale-105 active:scale-95 inline-block"
+            className="brand-gradient-bg text-slate-900 px-3 py-2 sm:px-6 sm:py-2.5 rounded-lg sm:rounded-xl font-black text-[11px] sm:text-sm transition-all shadow-lg shadow-lime-500/20 hover:scale-105 active:scale-95 inline-block whitespace-nowrap"
           >
             Contact Sales
           </a>
