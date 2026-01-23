@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   CheckCircle2, 
   ArrowRight, 
-  Download, 
   Menu, 
   X, 
   Globe2, 
@@ -78,7 +77,6 @@ const Logo = () => (
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -87,41 +85,16 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0f1e]/90 backdrop-blur-md border-b border-white/5 py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Logo />
         
-        <div className="hidden md:flex items-center gap-8">
-          {['Solutions', 'Process', 'Specs', 'The Lab'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-bold text-slate-300 hover:text-lime-400 transition-colors">{item}</a>
-          ))}
+        <div className="flex items-center gap-8">
           <button className="brand-gradient-bg text-slate-900 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-lg shadow-lime-500/20 hover:scale-105 active:scale-95">
             Contact Sales
           </button>
         </div>
-
-        <button className="md:hidden text-white" onClick={() => setMobileMenu(!mobileMenu)}>
-          {mobileMenu ? <X size={28} /> : <Menu size={28} />}
-        </button>
       </div>
-
-      <AnimatePresence>
-        {mobileMenu && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900 border-b border-white/10 overflow-hidden"
-          >
-            <div className="px-6 py-8 flex flex-col gap-6">
-              {['Solutions', 'Process', 'Specs', 'The Lab'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} onClick={() => setMobileMenu(false)} className="text-lg font-bold text-white">{item}</a>
-              ))}
-              <button className="brand-gradient-bg text-slate-900 py-4 rounded-xl font-black">Request a Quote</button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };
@@ -169,14 +142,16 @@ const Step = ({ number, title, detail, icon, index }: StepProps) => (
 
 const App = () => {
   return (
-    <div className="bg-slate-900 text-white selection:bg-lime-400 selection:text-slate-900">
+    <div className="bg-[#0a0f1e] text-white selection:bg-lime-400 selection:text-slate-900">
       <Nav />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0a0f1e]">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/40 z-10" />
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1596733430284-f7437764b1a9?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1e] via-[#0a0f1e]/80 to-transparent z-10" />
+          {/* Top hue protection gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1e] via-[#0a0f1e]/40 to-transparent z-10 h-64" />
+          <div className="w-full h-full bg-[url('https://spicenest.in/cdn/shop/articles/foxnut-exporter-870x315.jpg?v=1734001737')] bg-cover bg-center opacity-40 grayscale-[0.2]">
             <div className="absolute inset-0 flex items-center justify-center opacity-10">
               <span className="text-white text-[10vw] font-black uppercase tracking-tighter select-none">FACTORY DIRECT</span>
             </div>
@@ -214,10 +189,6 @@ const App = () => {
 
             <div className="flex flex-col sm:flex-row gap-5">
               <button className="flex items-center justify-center gap-3 brand-gradient-bg text-slate-900 px-8 py-4.5 rounded-xl font-black text-lg transition-all shadow-2xl shadow-lime-500/30 group hover:scale-105">
-                <Download className="w-5 h-5" />
-                Download Catalog & Specs
-              </button>
-              <button className="flex items-center justify-center gap-3 border-2 border-white/20 hover:border-sky-500/50 hover:bg-white/5 text-white px-8 py-4.5 rounded-xl font-black text-lg transition-all group">
                 Request Private Label Quote
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -230,14 +201,14 @@ const App = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="hidden lg:block relative"
           >
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto group">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto group bg-[#0a0f1e]/40 backdrop-blur-sm">
               <img 
-                src="https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&q=80" 
+                src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/41b225c8-0575-4406-992f-0cba5a5905b2/makhana+1.jpg" 
                 alt="Premium Production" 
                 className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-8 left-8 right-8 p-6 bg-slate-900/90 backdrop-blur-xl rounded-2xl border border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-transparent to-transparent opacity-60" />
+              <div className="absolute bottom-8 left-8 right-8 p-6 bg-[#0a0f1e]/90 backdrop-blur-xl rounded-2xl border border-white/10">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-lime-400 font-black text-xs uppercase tracking-widest">Quality Metrics</span>
                   <div className="flex gap-1">
@@ -264,8 +235,8 @@ const App = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section id="solutions" className="py-40 relative bg-[#f8fafc]">
+      {/* Why Us Section */}
+      <section id="why-us" className="py-40 relative bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-24">
             <p className="text-lime-500 font-black text-sm uppercase tracking-[0.3em] mb-4">WHY US</p>
@@ -369,82 +340,63 @@ const App = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-32 bg-slate-900 border-y border-white/5 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+      {/* About Section - Modernizing the Makhana Trade */}
+      <section id="about" className="py-32 bg-[#0a0f1e] relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center text-center"
           >
-            <div className="absolute top-4 left-4 w-full h-full border border-lime-500/20 rounded-[3rem] -z-10" />
-            <div className="rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/3] relative">
-              <img 
-                src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?auto=format&fit=crop&q=80" 
-                alt="Direct sourcing on ground" 
-                className="w-full h-full object-cover grayscale-[0.1]"
-              />
-              <div className="absolute bottom-8 left-8 p-6 bg-slate-900/90 backdrop-blur-xl rounded-2xl border border-white/10 min-w-[200px]">
-                <p className="text-lime-400 font-black text-sm uppercase tracking-widest mb-1">On Ground</p>
-                <p className="text-white text-lg font-bold">Madhubani, Bihar</p>
-              </div>
-            </div>
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-lime-500/10 blur-[120px] rounded-full pointer-events-none" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col"
-          >
-            <p className="text-lime-500 font-black text-sm uppercase tracking-[0.3em] mb-4">ABOUT US</p>
-            <h2 className="text-5xl lg:text-7xl font-extrabold text-white mb-10 leading-tight">Modernizing the <br /> Makhana Trade</h2>
+            <p className="text-[#84cc16] font-black text-xs uppercase tracking-[0.4em] mb-6">ABOUT US</p>
+            <h2 className="text-5xl lg:text-[72px] font-bold text-white mb-10 leading-[1.05] tracking-tight">
+              Modernizing the <br />
+              Makhana Trade
+            </h2>
             
-            <div className="space-y-8 text-slate-300 text-lg leading-relaxed mb-16">
+            <div className="space-y-8 text-slate-400 text-lg leading-relaxed mb-12 max-w-2xl">
               <p>
                 We are a team of trade professionals <span className="text-white font-black">(IIFT Alumni)</span> bridging the gap between traditional Indian agriculture and Western retail shelves.
+              </p>
+              <p>
+                Our expertise extends to high-end, <span className="text-white font-black">export-compliant packaging solutions</span>—from premium canisters and jars to custom-printed pouches—ensuring your brand stands out on global shelves.
               </p>
               <p>
                 We combine deep local relationships in Bihar with modern supply chain management. We aren't just selling nuts; we are providing a reliable, transparent procurement channel for global importers.
               </p>
               <p>
-                Our core strategy revolves around <span className="text-lime-400 font-black">direct procurement</span> to ensure peak freshness and unmatchable FOB pricing.
+                Our core strategy revolves around <span className="text-[#84cc16] font-black">direct procurement</span> to ensure peak freshness and unmatchable FOB pricing.
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 border-t border-white/10 pt-12">
-              <div className="flex flex-col items-center text-center group">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 mb-6 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-7 h-7" />
+            {/* Icons row */}
+            <div className="flex flex-wrap justify-center gap-12 mt-auto">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[#84cc16] hover:bg-white/5 transition-colors">
+                  <TrendingUp className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-white mb-1 uppercase tracking-tight">Modern</h4>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Supply Chain</p>
               </div>
 
-              <div className="flex flex-col items-center text-center group">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 mb-6 group-hover:scale-110 transition-transform">
-                  <Users className="w-7 h-7" />
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[#84cc16] hover:bg-white/5 transition-colors">
+                  <Users className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-white mb-1 uppercase tracking-tight">IIFT</h4>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Alumni Team</p>
               </div>
 
-              <div className="flex flex-col items-center text-center group">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-lime-400 mb-6 group-hover:scale-110 transition-transform">
-                  <Handshake className="w-7 h-7" />
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-[#84cc16] hover:bg-white/5 transition-colors">
+                  <Handshake className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-white mb-1 uppercase tracking-tight">Direct</h4>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Sourcing</p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Flavor Lab Section - Re-designed to match screenshot */}
-      <section id="the-lab" className="py-32 bg-white relative overflow-hidden">
+      {/* Flavor Lab Section */}
+      <section id="flavors" className="py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <p className="text-[#84cc16] font-extrabold text-sm uppercase tracking-[0.2em] mb-6">FLAVOR LAB</p>
@@ -452,16 +404,39 @@ const App = () => {
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
               Our R&D team can replicate or invent flavors to match local palates.
             </p>
-            {/* Gradient Divider */}
-            <div className="w-32 h-1.5 brand-gradient-bg mx-auto rounded-full mt-10" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Feature Image & Label */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto mb-20 text-center"
+          >
+            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200 border border-slate-100 mb-8 bg-slate-50">
+              <img 
+                src="https://lh3.googleusercontent.com/d/1YHMlX-nahr7qmlFpcbWqDSx8xTt2NmpQ" 
+                alt="ALPHANOVA Flavor Collection" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <p className="text-slate-900 font-black text-xs uppercase tracking-[0.5em]">FLAVOR CATALOGUE</p>
+            <div className="w-24 h-1 brand-gradient-bg mx-auto rounded-full mt-4" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
-              { cat: "Western Savory", icon: <Beef size={24} />, list: ["Sour Cream & Chive", "Texas BBQ", "Jalapeño Cheese"] },
-              { cat: "Exotic / Premium", icon: <Sparkles size={24} />, list: ["Himalayan Pink Salt", "Black Truffle", "Olive Oil Roast"] },
-              { cat: "Sweet / Dessert", icon: <Cookie size={24} />, list: ["Dark Chocolate Drizzle", "Caramel Glaze", "Cinnamon Toast"] },
-              { cat: "Functional", icon: <Heart size={24} />, list: ["Turmeric & Ginger (Immunity)", "Protein-Fortified"] }
+              { 
+                cat: "For the taste buds", 
+                icon: <Sparkles size={24} />, 
+                list: ["Salt & Paper", "Magic Masala", "Himalayan Pink Salt", "Piri Piri", "Cream & Onion"] 
+              },
+              { 
+                cat: "New & Upcoming", 
+                icon: <Flame size={24} />, 
+                list: ["Dark Chocolate Drizzle", "Texas BBQ"] 
+              }
             ].map((item, idx) => (
               <motion.div
                 key={item.cat}
@@ -471,7 +446,7 @@ const App = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="p-10 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col items-start text-left group hover:shadow-2xl transition-all duration-500"
               >
-                {/* Icon Container - Matching Screenshot */}
+                {/* Icon Container */}
                 <div className="w-12 h-12 bg-[#ecfccb] rounded-xl flex items-center justify-center mb-8 text-[#65a30d] group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
@@ -494,7 +469,7 @@ const App = () => {
       </section>
 
       {/* Footer & Final CTA */}
-      <footer className="pt-20 pb-12 bg-slate-900">
+      <footer className="pt-20 pb-12 bg-[#0a0f1e]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
@@ -506,51 +481,35 @@ const App = () => {
               <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight">Request a Commercial Sample Kit.</h2>
               <p className="text-xl text-slate-900/80 font-bold leading-relaxed mb-10">We ship our top grades and flavors to NY, London, or Berlin within <span className="text-slate-900 font-black">5 days</span>.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-800 transition-all shadow-xl">Order Sample Kit</button>
+                <button className="bg-[#0a0f1e] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-800 transition-all shadow-xl">Order Sample Kit</button>
               </div>
             </div>
             <div className="flex-shrink-0 relative hidden lg:block">
-              <div className="w-72 h-72 bg-slate-900 rounded-[2.5rem] p-8 rotate-6 hover:rotate-0 transition-transform duration-500 shadow-2xl flex flex-col justify-between">
-                <Globe2 className="w-12 h-12 text-lime-400" />
-                <div>
-                  <p className="text-sky-400 font-black text-xs tracking-widest mb-1 uppercase">Global Express</p>
-                  <p className="text-white text-2xl font-extrabold">5 Day <br /> Delivery</p>
+              <div 
+                className="w-72 h-72 rounded-[2.5rem] rotate-6 hover:rotate-0 transition-transform duration-500 shadow-2xl overflow-hidden group bg-[#0a0f1e]"
+                style={{
+                  backgroundImage: "url('https://lh3.googleusercontent.com/d/1GQa6X0-39XtOCekWRIPE5aDZI_jmENKp')",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="w-full h-full p-8 flex flex-col justify-between bg-black/40 group-hover:bg-black/20 transition-colors">
+                  <Globe2 className="w-12 h-12 text-lime-400" />
+                  <div>
+                    <p className="text-sky-400 font-black text-xs tracking-widest mb-1 uppercase drop-shadow-md">Global Express</p>
+                    <p className="text-white text-2xl font-extrabold drop-shadow-md">5 Day <br /> Delivery</p>
+                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 lg:grid-cols-5 gap-16 pb-20">
-            <div className="col-span-2">
+          <div className="flex flex-col md:flex-row justify-between gap-16 pb-20">
+            <div className="max-w-md">
               <div className="mb-8">
                 <Logo />
               </div>
-              <p className="text-slate-500 max-w-xs mb-10 leading-relaxed font-bold italic">Modernizing the Makhana supply chain through direct sourcing and agile manufacturing. Managed by IIFT Alumni.</p>
-              <div className="flex gap-4">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-xl bg-slate-800 border border-white/5 flex items-center justify-center grayscale opacity-50 hover:opacity-100 transition-all cursor-pointer">
-                    <span className="text-[10px] font-black text-white/50">CERT</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-black text-xs text-white uppercase tracking-[0.2em] mb-8">Solutions</h4>
-              <ul className="space-y-4 text-slate-500 font-bold">
-                <li><a href="#" className="hover:text-lime-400 transition-colors">Raw Bulk Sacks</a></li>
-                <li><a href="#" className="hover:text-lime-400 transition-colors">Private Labeling</a></li>
-                <li><a href="#" className="hover:text-lime-400 transition-colors">Custom Flavors</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-black text-xs text-white uppercase tracking-[0.2em] mb-8">Company</h4>
-              <ul className="space-y-4 text-slate-500 font-bold">
-                <li><a href="#" className="hover:text-lime-400 transition-colors">Our Story</a></li>
-                <li><a href="#" className="hover:text-lime-400 transition-colors">IIFT Alumni</a></li>
-                <li><a href="#" className="hover:text-lime-400 transition-colors">Operations</a></li>
-              </ul>
+              <p className="text-slate-500 mb-10 leading-relaxed font-bold italic">Modernizing the Makhana supply chain through direct sourcing and agile manufacturing. Managed by IIFT Alumni.</p>
             </div>
 
             <div>
@@ -562,7 +521,7 @@ const App = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-sky-400" />
-                  <span className="text-sm">+91 98765 43210</span>
+                  <span className="text-sm">+91 9810894357</span>
                 </li>
               </ul>
             </div>
