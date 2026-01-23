@@ -53,23 +53,12 @@ const DIRECT_FORM_URL = "https://forms.gle/eJmxd1Y19PVAurnU8";
 
 const Logo = () => (
   <div className="flex items-center gap-3">
-    <div className="w-12 h-12 relative flex items-center justify-center">
-      {/* High-fidelity SVG reconstruction of the leaf/arrow 'A' logo */}
-      <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
-        <path d="M120 420C120 420 130 320 180 220C220 140 300 120 350 140C300 170 250 240 220 320C190 400 180 460 180 460L120 420Z" fill="url(#leaf_grad)" />
-        <path d="M110 430C110 430 160 400 210 300C260 200 340 160 400 140" stroke="url(#arrow_grad)" strokeWidth="44" strokeLinecap="round" />
-        <path d="M350 130L410 140L400 200" stroke="url(#arrow_grad)" strokeWidth="44" strokeLinecap="round" strokeLinejoin="round" />
-        <defs>
-          <linearGradient id="leaf_grad" x1="120" y1="290" x2="350" y2="290" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#A3E635" />
-            <stop offset="1" stopColor="#65A30D" />
-          </linearGradient>
-          <linearGradient id="arrow_grad" x1="110" y1="285" x2="410" y2="140" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#0369A1" />
-            <stop offset="1" stopColor="#0EA5E9" />
-          </linearGradient>
-        </defs>
-      </svg>
+    <div className="w-14 h-14 relative flex items-center justify-center">
+      <img 
+        src="https://lh3.googleusercontent.com/d/1Z1KbgreYtlWphhCBb2QQBTA0gjBOZDWi" 
+        alt="Alphanova Trading Logo" 
+        className="w-full h-full object-contain drop-shadow-md"
+      />
     </div>
     <span className="text-2xl font-black tracking-tighter flex items-baseline">
       <span className="text-white uppercase">ALPHANOVA</span>
