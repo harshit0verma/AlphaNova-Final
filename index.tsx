@@ -46,7 +46,8 @@ interface StepProps {
   index: number;
 }
 
-const FORM_URL = "https://www.google.com/url?sa=E&q=https%3A%2F%2Fforms.gle%2FeJmxd1Y19PVAurnU8";
+// Unified direct link to the Google Form
+const DIRECT_FORM_URL = "https://forms.gle/eJmxd1Y19PVAurnU8";
 
 // --- Components ---
 
@@ -93,7 +94,7 @@ const Nav = () => {
         
         <div className="flex items-center gap-8">
           <a 
-            href={FORM_URL} 
+            href={DIRECT_FORM_URL} 
             target="_blank" 
             rel="noopener noreferrer"
             className="brand-gradient-bg text-slate-900 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-lg shadow-lime-500/20 hover:scale-105 active:scale-95 inline-block"
@@ -196,7 +197,7 @@ const App = () => {
 
             <div className="flex flex-col sm:flex-row gap-5">
               <a 
-                href={FORM_URL}
+                href={DIRECT_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 brand-gradient-bg text-slate-900 px-8 py-4.5 rounded-xl font-black text-lg transition-all shadow-2xl shadow-lime-500/30 group hover:scale-105 inline-flex"
@@ -337,8 +338,7 @@ const App = () => {
                     ["Variety", "Euryale Ferox (Fox Nut / Gorgon Nut)"],
                     ["Grades", "5 Sut+ (Platinum), 4 Sut+ (Gold)"],
                     ["Moisture", "< 3-5% (Export Standard)"],
-                    ["Shelf Life", "12 Months (Nitrogen Flushed)"],
-                    ["Certifications", "FSSAI, ISO, HACCP, FDA (Registered)"]
+                    ["Shelf Life", "12 Months (Nitrogen Flushed)"]
                   ].map(([label, value]) => (
                     <tr key={label} className="group hover:bg-slate-50 transition-colors">
                       <td className="px-10 py-6 font-bold text-lime-500 transition-colors text-lg">{label}</td>
@@ -494,7 +494,7 @@ const App = () => {
               <p className="text-xl text-slate-900/80 font-bold leading-relaxed mb-10">We ship our top grades and flavors to NY, London, or Berlin within <span className="text-slate-900 font-black">5 days</span>.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a 
-                  href={FORM_URL}
+                  href={DIRECT_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#0a0f1e] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-800 transition-all shadow-xl inline-block"
@@ -540,7 +540,7 @@ const App = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-sky-400" />
-                  <a href={`tel:+919810894357`} className="text-sm hover:text-white transition-colors">+91 9810894357</a>
+                  <a href="tel:+919810894357" className="text-sm hover:text-white transition-colors">+91 9810894357</a>
                 </li>
               </ul>
             </div>
