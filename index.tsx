@@ -46,6 +46,8 @@ interface StepProps {
   index: number;
 }
 
+const FORM_URL = "https://www.google.com/url?sa=E&q=https%3A%2F%2Fforms.gle%2FeJmxd1Y19PVAurnU8";
+
 // --- Components ---
 
 const Logo = () => (
@@ -90,9 +92,14 @@ const Nav = () => {
         <Logo />
         
         <div className="flex items-center gap-8">
-          <button className="brand-gradient-bg text-slate-900 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-lg shadow-lime-500/20 hover:scale-105 active:scale-95">
+          <a 
+            href={FORM_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="brand-gradient-bg text-slate-900 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-lg shadow-lime-500/20 hover:scale-105 active:scale-95 inline-block"
+          >
             Contact Sales
-          </button>
+          </a>
         </div>
       </div>
     </nav>
@@ -188,10 +195,15 @@ const App = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-5">
-              <button className="flex items-center justify-center gap-3 brand-gradient-bg text-slate-900 px-8 py-4.5 rounded-xl font-black text-lg transition-all shadow-2xl shadow-lime-500/30 group hover:scale-105">
+              <a 
+                href={FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 brand-gradient-bg text-slate-900 px-8 py-4.5 rounded-xl font-black text-lg transition-all shadow-2xl shadow-lime-500/30 group hover:scale-105 inline-flex"
+              >
                 Request Private Label Quote
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </div>
           </motion.div>
 
@@ -481,7 +493,14 @@ const App = () => {
               <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight">Request a Commercial Sample Kit.</h2>
               <p className="text-xl text-slate-900/80 font-bold leading-relaxed mb-10">We ship our top grades and flavors to NY, London, or Berlin within <span className="text-slate-900 font-black">5 days</span>.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="bg-[#0a0f1e] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-800 transition-all shadow-xl">Order Sample Kit</button>
+                <a 
+                  href={FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#0a0f1e] text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-800 transition-all shadow-xl inline-block"
+                >
+                  Order Sample Kit
+                </a>
               </div>
             </div>
             <div className="flex-shrink-0 relative hidden lg:block">
@@ -517,11 +536,11 @@ const App = () => {
               <ul className="space-y-5 text-slate-500 font-bold">
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-lime-400 mt-0.5" />
-                  <span className="text-sm">trade@alphanovatrading.com</span>
+                  <a href="mailto:trade@alphanovatrading.com?subject=Request%20for%20sample%20of%20Makhana&body=specifications%20%3A%0AContact%20Details%20%3A" className="text-sm hover:text-white transition-colors">trade@alphanovatrading</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-sky-400" />
-                  <span className="text-sm">+91 9810894357</span>
+                  <a href={`tel:+919810894357`} className="text-sm hover:text-white transition-colors">+91 9810894357</a>
                 </li>
               </ul>
             </div>
